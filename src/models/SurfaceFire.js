@@ -34,7 +34,7 @@ export class SurfaceFire {
       ['surface.primary.fuel.model.behave.parms.cured.herb.fraction', true]
     ])
     this.input = {
-      fuelModelCatalogKey: '10',
+      fuelModelCatalogKey: '124',
       fuelMoistureDead1: 5, // %
       fuelMoistureDead10: 7, // %
       fuelMoistureDead100: 9, // %

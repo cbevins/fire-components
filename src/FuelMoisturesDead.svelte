@@ -1,7 +1,6 @@
 <script>
-  import { Box } from './index.js'
+  import { Results } from './index.js'
   export let _input
-  export let _output
 </script>
 
 <div class="control-wrapper">
@@ -34,9 +33,6 @@
     </div>
   </div>
 </div>
-<Box>
-  <p>Spread rate = {($_output.spreadRate).toFixed(2)} ft/min</p>
-</Box>
 
 <style>
 * {

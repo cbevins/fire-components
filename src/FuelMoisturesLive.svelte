@@ -1,7 +1,5 @@
 <script>
-  import { Box } from './index.js'
   export let _input
-  export let _output
 </script>
 
 <div class="control-wrapper">
@@ -26,10 +24,6 @@
     </div>
   </div>
 </div>
-<Box>
-  <p>Cured herb fraction = {(100 * $_output.curedHerbFraction).toFixed(0)}%</p>
-  <p>Spread rate = {$_output.spreadRate.toFixed(2)} ft/min</p>
-</Box>
 
 <style>
 * {

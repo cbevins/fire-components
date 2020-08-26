@@ -1,6 +1,4 @@
 <script>
-  import { Box } from './index.js'
-  import { FireWindSlopeCompass } from './index.js'
   export let _input
   export let _output
 
@@ -63,11 +61,7 @@
       </div>
     </div>
   </div>
-  <FireWindSlopeCompass _input={_input} _output={_output} scale=1/>
 </div>
-<Box>
-  <p>Spread rate = {($_output.spreadRate).toFixed(2)} ft/min</p>
-</Box>
 
 <style>
 * {

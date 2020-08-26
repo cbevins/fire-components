@@ -1,5 +1,6 @@
 <script>
-  import { _input, _output } from './stores.js'
+  export let _input
+  export let _output
   export let scale = 1
   let vp = `${-65/scale} ${-65/scale} ${130/scale} ${130/scale}`
 

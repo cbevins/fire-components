@@ -1,33 +1,42 @@
 <script>
-  import { _input, _output } from './stores.js'
+  import { Box } from './index.js'
+  export let _input
+  export let _output
 </script>
 
 <div class="control-wrapper">
   <div class="row">
-      <p class="fuel-moisture-title">Live Moisture</p>
+      <p class="fuel-moisture-title">&nbsp;Dead Fuel Moisture</p>
   </div>
   <div class="row">
     <div class="fuel-moisture-slider">
-      <p class="fuel-moisture-label">Herb</p>
-      <p class="fuel-moisture-value">{$_input.fuelMoistureLiveHerb}%</p>
+      <p class="fuel-moisture-label">1-h</p>
+      <p class="fuel-moisture-value">{$_input.fuelMoistureDead1}%</p>
       <div class="vertical-slider-wrapper">
-        <input bind:value={$_input.fuelMoistureLiveHerb} type="range" min="50" max="400" step="1">
+        <input bind:value={$_input.fuelMoistureDead1} type="range" min="1" max="40" step="1">
       </div>
     </div>
 
     <div class="fuel-moisture-slider">
-      <p class="fuel-moisture-label">Stem</p>
-      <p class="fuel-moisture-value">{$_input.fuelMoistureLiveStem}%</p>
+      <p class="fuel-moisture-label">10-h</p>
+      <p class="fuel-moisture-value">{$_input.fuelMoistureDead10}%</p>
       <div class="vertical-slider-wrapper">
-        <input bind:value={$_input.fuelMoistureLiveStem} type="range" min="50" max="400" step="1">
+        <input bind:value={$_input.fuelMoistureDead10} type="range" min="1" max="40" step="1">
+      </div>
+    </div>
+
+    <div class="fuel-moisture-slider">
+      <p class="fuel-moisture-label">100-h</p>
+      <p class="fuel-moisture-value">{$_input.fuelMoistureDead100}%</p>
+      <div class="vertical-slider-wrapper">
+        <input bind:value={$_input.fuelMoistureDead100} type="range" min="1" max="40" step="1">
       </div>
     </div>
   </div>
 </div>
-<div>
-  <p>Cured herb fraction = {(100 * $_output.curedHerbFraction).toFixed(0)}%</p>
-  <p>Spread rate = {$_output.spreadRate.toFixed(2)} ft/min</p>
-</div>
+<Box>
+  <p>Spread rate = {($_output.spreadRate).toFixed(2)} ft/min</p>
+</Box>
 
 <style>
 * {
@@ -41,10 +50,10 @@
 }
 
 .control-wrapper {
-  width: 80px;
+  width: 120px;
   height: 200px;
   text-align: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.48);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.24), 0 1px 2px rgba(0,0,0,0.48);
 }
 .fuel-moisture-label {
   font-family: "Lucida Sans", sans-serif;

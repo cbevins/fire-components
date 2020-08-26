@@ -1,6 +1,18 @@
 <script>
-  import { _input, _output } from './stores.js'
+  import { Badge, Button, Collapse, Card, CardBody, CardHeader, CardTitle } from "sveltestrap"
+  import { _input, _output } from './models/SurfaceFire.js'
+  import { DeadFuelMoistures } from './index.js'
 </script>
+
+<svelte:head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</svelte:head>
+
+<Card>
+  <CardHeader>
+    Card Header
+  </CardHeader>
+  <CardBody>
 
 <div class="control-wrapper">
   <div class="row">
@@ -32,7 +44,8 @@
     </div>
   </div>
 </div>
-<p>Spread rate = {$_output.spreadRate}</p>
+  </CardBody>
+</Card>
 
 <style>
 * {

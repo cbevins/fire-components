@@ -1,6 +1,7 @@
+import { derived, writable } from 'svelte/store'
 import * as Dag from 'c:/cbevins/dev/node/behaveplus-radical/dist/bundle.esm.js'
 
-export class BehavePlus {
+export class SurfaceFire {
   constructor () {
     this.dag = new Dag.Bpx()
     this.dag.setConfigs([
@@ -79,3 +80,7 @@ export class BehavePlus {
     return this.output
   }
 }
+
+const model = new SurfaceFire()
+export const _input = writable(model.input)
+export const _output = derived(_input, $_input => model.run($_input))

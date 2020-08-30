@@ -81,6 +81,6 @@ export class SurfaceFire {
   }
 }
 
-const model = new SurfaceFire()
-export const _input = writable(model.input)
-export const _output = derived(_input, $_input => model.run($_input))
+// const model = new SurfaceFire()
+// export const _input = writable(model.input)
+// export const _output = derived(_input, $_input => model.run($_input))

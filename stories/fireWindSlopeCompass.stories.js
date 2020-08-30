@@ -9,7 +9,7 @@ export default {
   component: FireWindSlopeCompass,
 }
 
-export const CustomCss = () => ({
+export const Standalone = () => ({
   Component: FireWindSlopeCompass,
   props: {_input: _input, _output: _output},
   on: { click: action('clicked') },

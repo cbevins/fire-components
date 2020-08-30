@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import {terser} from 'rollup-plugin-terser';
 import pkg from './package.json';
 import preprocess from 'svelte-preprocess';
+import autoPreprocess from 'svelte-preprocess';
 
 const name = pkg.name
 	.replace(/^(@\S+\/)?(svelte-)?(\S+)/, '$3')
@@ -18,7 +19,8 @@ export default {
 	],
 	plugins: [
 		svelte({
-      preprocess: preprocess()
+      preprocess: preprocess(),
+      autoPreprocess: preprocess()
     }),
 		resolve()
 	]

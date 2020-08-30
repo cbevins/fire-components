@@ -1,7 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import { SampleButton } from '../src/index'
-import { Clock } from '../src/index'
-import { ScalingExample } from '../src/index'
+import { Clock, PotOfGold, SampleButton, ScalingCompass } from '../src/index'
 
 export default {
   title: 'Examples & Tutorials',
@@ -27,7 +25,13 @@ export const ClockDemo = () => ({
 })
 
 export const ScalingPotOfGold = () => ({
-  Component: ScalingExample,
+  Component: PotOfGold,
+  props: {},
+  on: { click: action('clicked') },
+})
+
+export const ScalingCompassAttempt = () => ({
+  Component: ScalingCompass,
   props: {},
   on: { click: action('clicked') },
 })

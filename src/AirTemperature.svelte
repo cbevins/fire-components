@@ -1,27 +1,25 @@
 <script>
   export let _input
+  let c = centigrade($_input.airTemperature)
+
+  function centigrade(f) { return (5 * (f-32) / 9) }
+  function handleAirTemp() {
+    c = centigrade($_input.airTemperature)
+  }
 </script>
 
 <div class="control-wrapper">
   <div class="row">
-      <p class="fuel-moisture-title">Live Moisture</p>
+      <p class="air-temp-title">Air</p>
   </div>
   <div class="row">
-    <div class="fuel-moisture-slider">
-      <p class="fuel-moisture-label">Herb</p>
-      <p class="fuel-moisture-label">&nbsp;</p>
-      <p class="fuel-moisture-value">{$_input.fuelMoistureLiveHerb}%</p>
+    <div class="air-temp-slider">
+      <p class="air-temp-label">Temp</p>
+      <p class="air-temp-value">{c.toFixed(0)}C&#x00B0;</p>
+      <p class="air-temp-value">{($_input.airTemperature).toFixed(0)} F&#x00B0;</p>
       <div class="vertical-slider-wrapper">
-        <input bind:value={$_input.fuelMoistureLiveHerb} type="range" min="50" max="400" step="1">
-      </div>
-    </div>
-
-    <div class="fuel-moisture-slider">
-      <p class="fuel-moisture-label">Stem</p>
-      <p class="fuel-moisture-label">&nbsp;</p>
-      <p class="fuel-moisture-value">{$_input.fuelMoistureLiveStem}%</p>
-      <div class="vertical-slider-wrapper">
-        <input bind:value={$_input.fuelMoistureLiveStem} type="range" min="50" max="400" step="1">
+        <input bind:value={$_input.airTemperature} type="range" min="40" max="120" step="1"
+        on:input={handleAirTemp}>
       </div>
     </div>
   </div>
@@ -31,44 +29,42 @@
 * {
   box-sizing: border-box;
 }
-
 .row::after {
   content: "";
   clear: both;
   display: table;
 }
-
 .control-wrapper {
-  width: 80px;
+  width: 50px;
   height: 220px;
   text-align: center;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.48);
 }
-.fuel-moisture-label {
+.air-temp-label {
   font-family: "Lucida Sans", sans-serif;
   font-size: 12px;
   text-align: center;
   color: green;
   margin: 0px;
 }
-.fuel-moisture-title {
+.air-temp-title {
   font-family: "Lucida Sans", sans-serif;
   font-size: 12px;
   text-align: center;
   color: green;
   margin: 0px;
 }
-.fuel-moisture-value {
+.air-temp-value {
   font-family: "Lucida Sans", sans-serif;
   font-size: 12px;
   text-align: center;
   color: green;
   margin: 0px;
 }
-.fuel-moisture-slider {
+.air-temp-slider {
   font-family: "Lucida Sans", sans-serif;
   font-size: 12px;
-  width: 40px;
+  width: 50px;
   height: 220px;
   padding-left: 5px;
   padding-right: 5px;

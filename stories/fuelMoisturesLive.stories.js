@@ -9,7 +9,7 @@ export default {
   component: FuelMoisturesLive,
 }
 
-export const CustomCssSliders = () => ({
+export const Standalone = () => ({
   Component: FuelMoisturesLive,
   props: {_input: _input, _output: _output},
   on: { click: action('clicked') },

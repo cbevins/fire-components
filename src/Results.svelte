@@ -1,6 +1,6 @@
 <script>
+import { Container, Row, Col, Table, Card, CardBody, CardHeader, CardTitle } from "sveltestrap"
   import { Box } from './index.js'
-  export let _input
   export let _output
 </script>
 

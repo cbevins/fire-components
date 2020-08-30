@@ -1,5 +1,7 @@
 <script>
-  export let _input
+  export let _1h
+  export let _10h
+  export let _100h
 </script>
 
 <div class="control-wrapper">
@@ -10,27 +12,27 @@
     <div class="fuel-moisture-slider">
       <p class="fuel-moisture-label">1-h</p>
       <p class="fuel-moisture-label">&nbsp;</p>
-      <p class="fuel-moisture-value">{$_input.fuelMoistureDead1}%</p>
+      <p class="fuel-moisture-value">{_1h}%</p>
       <div class="vertical-slider-wrapper">
-        <input bind:value={$_input.fuelMoistureDead1} type="range" min="1" max="40" step="1">
+        <input bind:value={_1h} type="range" min="1" max="40" step="1">
       </div>
     </div>
 
     <div class="fuel-moisture-slider">
       <p class="fuel-moisture-label">10-h</p>
       <p class="fuel-moisture-label">&nbsp;</p>
-      <p class="fuel-moisture-value">{$_input.fuelMoistureDead10}%</p>
+      <p class="fuel-moisture-value">{_10h}%</p>
       <div class="vertical-slider-wrapper">
-        <input bind:value={$_input.fuelMoistureDead10} type="range" min="1" max="40" step="1">
+        <input bind:value={_10h} type="range" min="1" max="40" step="1">
       </div>
     </div>
 
     <div class="fuel-moisture-slider">
       <p class="fuel-moisture-label">100-h</p>
       <p class="fuel-moisture-label">&nbsp;</p>
-      <p class="fuel-moisture-value">{$_input.fuelMoistureDead100}%</p>
+      <p class="fuel-moisture-value">{_100h}%</p>
       <div class="vertical-slider-wrapper">
-        <input bind:value={$_input.fuelMoistureDead100} type="range" min="1" max="40" step="1">
+        <input bind:value={_100h} type="range" min="1" max="40" step="1">
       </div>
     </div>
   </div>

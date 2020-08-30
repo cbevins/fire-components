@@ -1,8 +1,7 @@
 <script>
   export let _input
 
-  export let degrees = slopeDegrees(0.01 * $_input.slopeSteepnessRatio)
-  let direction = compassDirection($_input.slopeDirectionAspect)
+  let direction = compassDirection($_input.windDirectionSourceFromNorth)
 
   function toDegrees (rad) {
     return (rad * 180) / Math.PI
@@ -28,34 +27,30 @@
     return Dir[idx]
   }
   function handleCompass() {
-    direction = compassDirection($_input.slopeDirectionAspect)
-  }
-  function handleSteepness() {
-    $_input.slopeSteepnessRatio = 100 * slopeRatio(degrees)
+    direction = compassDirection($_input.windDirectionSourceFromNorth)
   }
 </script>
 
 <div class="control-wrapper">
   <div class="row">
-      <p class="slope-title">Slope</p>
+      <p class="wind-title">Wind</p>
   </div>
   <div class="row">
-    <div class="slope-slider">
-      <p class="slope-label">Steep</p>
-      <p class="slope-value">{degrees.toFixed(0)}&#x00B0;</p>
-      <p class="slope-value">{($_input.slopeSteepnessRatio).toFixed(0)}%</p>
+    <div class="wind-slider">
+      <p class="wind-label">Speed</p>
+      <p class="wind-value">mph</p>
+      <p class="wind-value">{($_input.windSpeedAtMidflame).toFixed(0)}</p>
       <div class="vertical-slider-wrapper">
-        <input bind:value={degrees} type="range" min="0" max="80" step="1"
-        on:input={handleSteepness}>
+        <input bind:value={$_input.windSpeedAtMidflame} type="range" min="0" max="40" step="1" />
       </div>
     </div>
 
-    <div class="slope-slider">
-      <p class="slope-label">Asp</p>
-      <p class="slope-value">{$_input.slopeDirectionAspect}&#x00B0;</p>
-      <p class="slope-value">{direction}</p>
+    <div class="wind-slider">
+      <p class="wind-label">From</p>
+      <p class="wind-value">{direction}</p>
+      <p class="wind-value">{$_input.windDirectionSourceFromNorth}&#x00B0;</p>
       <div class="vertical-slider-wrapper">
-        <input bind:value={$_input.slopeDirectionAspect} type="range" min="0" max="359" step="1"
+        <input bind:value={$_input.windDirectionSourceFromNorth} type="range" min="0" max="359" step="1"
         on:input={handleCompass}>
       </div>
     </div>
@@ -77,28 +72,28 @@
   text-align: center;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.48);
 }
-.slope-label {
+.wind-label {
   font-family: "Lucida Sans", sans-serif;
   font-size: 12px;
   text-align: center;
   color: green;
   margin: 0px;
 }
-.slope-title {
+.wind-title {
   font-family: "Lucida Sans", sans-serif;
   font-size: 12px;
   text-align: center;
   color: green;
   margin: 0px;
 }
-.slope-value {
+.wind-value {
   font-family: "Lucida Sans", sans-serif;
   font-size: 12px;
   text-align: center;
   color: green;
   margin: 0px;
 }
-.slope-slider {
+.wind-slider {
   font-family: "Lucida Sans", sans-serif;
   font-size: 12px;
   width: 40px;

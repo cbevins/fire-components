@@ -3,27 +3,45 @@
   import * as Comp from './index.js'
   export let _input
   export let _output
-  let ros
-  $: ros = $_output.spreadRate
 </script>
 
-<Comp.OutputSpreadRate _output={_output} />
-<Comp.OutputFireHeadingFromNorth _output={_output} />
-<Comp.OutputFlameLength _output={_output} />
-<Comp.OutputScorchHeight _output={_output} />
-<Comp.FireWindSlopeCompass
-  width=100 height=100
-  _input={_input} _output={_output} scale=1/>
+<Table>
+  <tr>
+    <td rowspan="2">
+      <Comp.FireWindSlopeCompass width=100 height=100
+        _input={_input} _output={_output} scale=1/>
+    </td>
+    <th align='center'>Spread<br>Rate<br>ft/min</th>
+    <th align='center'>Heading<br>Dir<br>&#x00B0;</th>
+    <th align='center'>Flame<br>Length<br>ft</th>
+    <th align='center'>Scorch<br>Height<br>ft</th>
+  </tr>
+  <tr>
+    <td align='center' valign='top'>
+      <span class='output-value'>
+        <Comp.OutputSpreadRate _output={_output} />
+      </span>
+    </td>
+    <td align='center' valign='top'>
+      <span class='output-value'>
+        <Comp.OutputFireHeadingFromNorth _output={_output} />
+      </span>
+    </td>
+    <td align='center' valign='top'>
+      <span class='output-value'>
+        <Comp.OutputFlameLength _output={_output} />
+      </span>
+    </td>
+    <td align='center' valign='top'>
+      <span class='output-value'>
+        <Comp.OutputScorchHeight _output={_output} />
+      </span>
+    </td>
+  </tr>
+</Table>
 
-<div class="grid-container">
-Grid container
-</div>
 <style>
-.grid-container {
-  display: grid;
-  grid-template-columns: 120px 80px 80px 130;
-  grid-template-rows: 20px;
-  align-content: space-evenly;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.24), 0 1px 2px rgba(0,0,0,0.48);
-}
+  .output-value {
+    font: normal 20px sans-serif;
+  }
 </style>

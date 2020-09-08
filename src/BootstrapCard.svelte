@@ -1,27 +1,23 @@
 <script>
-  import { Container, Row, Col, Table, Card, CardBody, CardHeader, CardTitle } from "sveltestrap"
+  import { Container, Row, Col, Button, Collapse, Table } from "sveltestrap"
+  import { Card, CardBody, CardHeader, CardTitle } from "sveltestrap"
+  import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'sveltestrap'
   import * as Comp from './index.js'
-  export let _input
-  export let _output
+
+  let isOpen = false
 </script>
 
-<Card>
-  <CardHeader>
-    <Comp.OutputSpreadRate _output={_output} />
-    <Comp.OutputFireHeadingFromNorth _output={_output} />
-    <Comp.OutputFlameLength _output={_output} />
-    <Comp.OutputScorchHeight _output={_output} />
-    <Comp.FireWindSlopeCompass _input={_input} _output={_output} scale=.5/>
-  </CardHeader>
-  <CardBody>
-  <Table>
-    <tr>
-      <td><Comp.FuelMoisturesDead _input={_input} _output={_output} /></td>
-      <td><Comp.FuelMoisturesLive _input={_input} _output={_output} /></td>
-      <td><Comp.SlopeAspectSteepness _input={_input} _output={_output} /></td>
-      <td><Comp.WindSpeedDirection _input={_input} _output={_output} /></td>
-      <td><Comp.AirTemperature _input={_input} _output={_output} /></td>
-    </tr>
-  </Table>
-  </CardBody>
-</Card>
+<svelte:head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</svelte:head>
+
+<Button color="primary" on:click={() => (isOpen = !isOpen)} class="mb-3">
+  Toggle
+</Button>
+<Collapse {isOpen}>
+  <Card body>
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+    richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
+    anderson cred nesciunt sapiente ea proident.
+  </Card>
+</Collapse>

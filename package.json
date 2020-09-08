@@ -41,6 +41,7 @@
     "dist"
   ],
   "dependencies": {
+    "@widgetjs/tree": "1.8.3",
     "node-sass": "4.14.1",
     "svelte-preprocess": "4.1.1"
   }

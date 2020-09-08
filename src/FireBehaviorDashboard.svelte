@@ -5,43 +5,29 @@
   export let _output
 </script>
 
-<Table>
-  <tr>
-    <td rowspan="2">
-      <Comp.FireWindSlopeCompass width=100 height=100
-        _input={_input} _output={_output} scale=1/>
-    </td>
-    <th align='center'>Spread<br>Rate<br>ft/min</th>
-    <th align='center'>Heading<br>Dir<br>&#x00B0;</th>
-    <th align='center'>Flame<br>Length<br>ft</th>
-    <th align='center'>Scorch<br>Height<br>ft</th>
-  </tr>
-  <tr>
-    <td align='center' valign='top'>
-      <span class='output-value'>
-        <Comp.OutputSpreadRate _output={_output} />
-      </span>
-    </td>
-    <td align='center' valign='top'>
-      <span class='output-value'>
-        <Comp.OutputFireHeadingFromNorth _output={_output} />
-      </span>
-    </td>
-    <td align='center' valign='top'>
-      <span class='output-value'>
-        <Comp.OutputFlameLength _output={_output} />
-      </span>
-    </td>
-    <td align='center' valign='top'>
-      <span class='output-value'>
-        <Comp.OutputScorchHeight _output={_output} />
-      </span>
-    </td>
-  </tr>
-</Table>
+<div class="row">
+  <Comp.OutputBox title1='Spread' title2='Rate' units='ft/min'
+    value={$_output.spreadRate.toFixed(2)} />
+  <Comp.OutputBox title1='Heading' title2='Azimuth' units='&#x00B0 from N';
+    value={$_output.fireHeadingFromNorth.toFixed(0)} />
+  <Comp.OutputBox title1='Flame' title2='Length' units='ft'
+    value={$_output.flameLength.toFixed(2)} />
+  <Comp.OutputBox title1='Scorch' title2='Height' units='ft'
+    value={$_output.scorchHeight.toFixed(2)} />
+  <Comp.FireWindSlopeCompass width=100 height=100
+    aspect={$_input.slopeDirectionAspect}
+    windFrom={$_input.windDirectionSourceFromNorth}
+    fireHead={$_output.fireHeadingFromNorth} />
+</div>
 
 <style>
-  .output-value {
-    font: normal 20px sans-serif;
+  * {
+    box-sizing: border-box;
+  }
+
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
   }
 </style>

@@ -1,8 +1,9 @@
 <script>
-  export let _input
-  export let _output
   export let width
   export let height
+  export let aspect
+  export let fireHead
+  export let windFrom
 
   let points = [
     {deg: 270, text: 'N', x: 56, y: 10, cls: 'compass-text-major'},
@@ -47,9 +48,11 @@
 		stroke: rgb(180,0,0);
     stroke-width: .5;
 	}
+
   .compass-text-minor {
     font: normal 8px sans-serif;
   }
+
   .compass-text-major {
     font: bold 10px sans-serif;
   }
@@ -81,19 +84,19 @@
         <line class='minor-tic'	y1='42' y2='45'	transform='translate(60,60) rotate({deg + 30})'/>
       {/each}
       <!-- slope needle -->
-      <g transform='translate(60,60) rotate({$_input.slopeDirectionAspect})'>
+      <g transform='translate(60,60) rotate({aspect})'>
         <polygon class='slope-needle'
           fill="url(#slopeGradient)"
           points="0,44 8,-44 0,-38 -8,-44" />
       </g>
       <!-- wind needle -->
-      <g transform='translate(60,60) rotate({$_input.windDirectionSourceFromNorth})'>
+      <g transform='translate(60,60) rotate({windFrom})'>
         <polygon class='wind-needle'
           fill="url(#windGradient)"
           points="0,42 6,-42 0,-36 -6,-42" />
       </g>
       <!-- fire needle -->
-      <g transform='translate(60,60) rotate({$_output.fireHeadingFromNorth+180})'>
+      <g transform='translate(60,60) rotate({fireHead+180})'>
         <polygon class='fire-needle'
           fill="url(#fireGradient)"
           points="0,40 4,-40 0,-34 -4,-40" />
@@ -102,10 +105,8 @@
   </defs>
 </svg>
 
-<figure class="abox">
-  <div>
-    <svg viewBox="0 0 130 130" width={width} height={height}>
-      <use xlink:href="#fireWindSlopeCompass"/>
-    </svg>
-  </div>
-</figure>
+<div>
+  <svg viewBox="0 0 130 130" width={width} height={height}>
+    <use xlink:href="#fireWindSlopeCompass"/>
+  </svg>
+</div>

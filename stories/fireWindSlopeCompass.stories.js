@@ -14,6 +14,8 @@ export const Standalone = () => ({
   props: {_input: _input, _output: _output,
     aspect: model.input.slopeDirectionAspect,
     windFrom: model.input.windDirectionSourceFromNorth,
-    fireHead: model.output.fireHeadingFromNorth},
+    fireHead: model.output.fireHeadingFromNorth,
+    lwr: model.output.lengthToWidthRatio
+  },
   on: { click: action('clicked') },
 })

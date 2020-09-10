@@ -15,3 +15,10 @@
     <td><Comp.AirTemperature _input={_input} _output={_output} /></td>
   </tr>
 </Table>
+<Comp.Bubble width=20 height=20 color='red'/>
+<Comp.Bubble width=40 height=40 color='green' />
+<Comp.Bubble width=60 height=60 color="blue" />
+<Comp.Bubble width=80 height=80 color='gray'/>
+<Comp.Bubble width=100 height=100 color='user'/>
+<Comp.Bubble width=120 height=120 color='green'/>
+<Comp.Bubble width=140 height=140 color='blue'/>

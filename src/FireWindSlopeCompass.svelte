@@ -4,6 +4,7 @@
   export let aspect
   export let fireHead
   export let windFrom
+  export let lwr
 
   let points = [
     {deg: 270, text: 'N', x: 56, y: 10, cls: 'compass-text-major'},
@@ -15,6 +16,9 @@
     {deg: 180, text: 'W', x: 0, y: 63, cls: 'compass-text-major'},
     {deg: 225, text: 'NW', x: 12, y: 25, cls: 'compass-text-minor'},
   ]
+
+  let rx
+  $: rx = 40 / lwr
 </script>
 
 <style>
@@ -37,6 +41,11 @@
 	.slope-needle {
 		stroke: rgb(16, 139, 26);
     stroke-width: .5;
+	}
+
+	.slope-pointer {
+		stroke: #f00;
+		stroke-width: 0.5;
 	}
 
 	.wind-needle {
@@ -72,6 +81,10 @@
       <stop offset="0%" style="stop-color:rgb(200,200,240);stop-opacity:1" />
       <stop offset="100%" style="stop-color:blue;stop-opacity:1" />
     </linearGradient>
+    <radialGradient id="slopeBubbleGradient" cx="50%" cy="50%" r="80%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="white" stop-opacity="0" />
+      <stop offset="100%" stop-color="black" stop-opacity=".5" />
+    </radialGradient>
 
     <symbol id="fireWindSlopeCompass" >
       <circle r='48' class="fire-wind-slope-compass-face"
@@ -84,22 +97,35 @@
         <line class='minor-tic'	y1='42' y2='45'	transform='translate(60,60) rotate({deg + 30})'/>
       {/each}
       <!-- slope needle -->
-      <g transform='translate(60,60) rotate({aspect})'>
+      <!-- <g transform='translate(60,60) rotate({aspect})'>
         <polygon class='slope-needle'
           fill="url(#slopeGradient)"
           points="0,44 8,-44 0,-38 -8,-44" />
+      </g> -->
+      <!-- slope bubble -->
+      <g transform='translate(60,60) rotate({aspect})'>
+        <ellipse cx="0" cy="44" rx="4" ry="4" fill="url(#slopeBubbleGradient)" />
+        <line class='slope-pointer'	y1='48' y2='54'/>
+        <text x="0" y="44" style="font: normal 4px sans-serif;">up</text>
       </g>
       <!-- wind needle -->
       <g transform='translate(60,60) rotate({windFrom})'>
         <polygon class='wind-needle'
           fill="url(#windGradient)"
-          points="0,42 6,-42 0,-36 -6,-42" />
+          points="0,44 6,38, 4,38, 4,30, -4,30, -4,38, -6,38" />
+          <!-- points="0,42 6,-42 0,-36 -6,-42" /> -->
+        <text x="0" y="30" style="font: normal 4px sans-serif;"
+          >wind</text>
       </g>
       <!-- fire needle -->
-      <g transform='translate(60,60) rotate({fireHead+180})'>
+      <!-- <g transform='translate(60,60) rotate({fireHead+180})'>
         <polygon class='fire-needle'
           fill="url(#fireGradient)"
           points="0,40 4,-40 0,-34 -4,-40" />
+      </g> -->
+      <!-- fire ellipse -->
+      <g transform='translate(60,60) rotate({fireHead+180})'>
+        <ellipse cx="0" cy="0" rx={rx} ry="40" fill="url(#fireGradient)" />
       </g>
     </symbol>
   </defs>

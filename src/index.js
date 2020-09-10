@@ -1,6 +1,7 @@
 export { default as AirTemperature } from './AirTemperature.svelte'
 export { default as BootstrapCard } from './BootstrapCard.svelte'
 export { default as Box } from './Box.svelte'
+export { default as Bubble } from './Bubble.svelte'
 export { default as Clock } from './Clock.svelte'
 export { default as FireBehaviorDashboard } from './FireBehaviorDashboard.svelte'
 export { default as FireWindSlopeCompass } from './FireWindSlopeCompass.svelte'

@@ -14,7 +14,7 @@
     value={$_output.flameLength.toFixed(2)} />
   <Comp.OutputBox title1='Scorch' title2='Height' units='ft'
     value={$_output.scorchHeight.toFixed(2)} />
-  <Comp.FireWindSlopeCompass width=110 height=100
+  <Comp.FireWindSlopeCompass width=310 height=300
     aspect={$_input.slopeDirectionAspect}
     windFrom={$_input.windDirectionSourceFromNorth}
     fireHead={$_output.fireHeadingFromNorth}

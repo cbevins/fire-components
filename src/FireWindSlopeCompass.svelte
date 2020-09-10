@@ -96,17 +96,12 @@
         <line class='minor-tic'	y1='42' y2='45'	transform='translate(60,60) rotate({deg + 15})'/>
         <line class='minor-tic'	y1='42' y2='45'	transform='translate(60,60) rotate({deg + 30})'/>
       {/each}
-      <!-- slope needle -->
-      <!-- <g transform='translate(60,60) rotate({aspect})'>
-        <polygon class='slope-needle'
-          fill="url(#slopeGradient)"
-          points="0,44 8,-44 0,-38 -8,-44" />
-      </g> -->
       <!-- slope bubble -->
       <g transform='translate(60,60) rotate({aspect})'>
         <ellipse cx="0" cy="44" rx="4" ry="4" fill="url(#slopeBubbleGradient)" />
         <line class='slope-pointer'	y1='48' y2='54'/>
-        <text x="0" y="44" style="font: normal 4px sans-serif;">up</text>
+        <text x="10" style="font: normal 4px sans-serif;"
+          transform='rotate(90 -16,15)'>up</text>
       </g>
       <!-- wind needle -->
       <g transform='translate(60,60) rotate({windFrom})'>
@@ -114,15 +109,9 @@
           fill="url(#windGradient)"
           points="0,44 6,38, 4,38, 4,30, -4,30, -4,38, -6,38" />
           <!-- points="0,42 6,-42 0,-36 -6,-42" /> -->
-        <text x="0" y="30" style="font: normal 4px sans-serif;"
-          >wind</text>
+        <text x="1" style="font: normal 4px sans-serif;"
+          transform='rotate(90 -16,15)'>wind</text>
       </g>
-      <!-- fire needle -->
-      <!-- <g transform='translate(60,60) rotate({fireHead+180})'>
-        <polygon class='fire-needle'
-          fill="url(#fireGradient)"
-          points="0,40 4,-40 0,-34 -4,-40" />
-      </g> -->
       <!-- fire ellipse -->
       <g transform='translate(60,60) rotate({fireHead+180})'>
         <ellipse cx="0" cy="0" rx={rx} ry="40" fill="url(#fireGradient)" />

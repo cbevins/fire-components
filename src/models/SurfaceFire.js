@@ -42,8 +42,8 @@ export class SurfaceFire {
       fuelMoistureLiveStem: 150, // %
       windSpeedAtMidflame: 10, // mph
       windDirectionSourceFromNorth: 270, // from the west
-      slopeSteepnessRatio: 21, // %
-      slopeDirectionAspect: 226, // SW aspect, NE upslope
+      slopeSteepnessRatio: 120, // %
+      slopeDirectionAspect: 225, // SW aspect, NE upslope
       airTemperature: 95 // F
     }
     this.run()
